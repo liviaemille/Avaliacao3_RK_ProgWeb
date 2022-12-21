@@ -1,0 +1,19 @@
+{% extends 'crud/base.html' %} 
+
+{% load crispy_forms_tags %} 
+
+{% block content %} 
+    <form method="post">
+        <div class="form-group">
+             {% csrf_token %}
+            {{ form|crispy}}
+        </div>
+           
+        <br>
+           <button type="submit" class="btn btn-sucess btn-primary">Salvar</button>
+            <a href="{% url 'lista_produtos' %}" ><button type="button" class="btn btn-sucesss btn-primary" >Voltar</button></a> 
+        
+        
+    </form>
+
+{% endblock %}

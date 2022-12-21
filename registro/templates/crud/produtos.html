@@ -1,0 +1,32 @@
+{% extends  'crud/base.html' %} 
+{% block content %}
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+            <caption>Lista de Produtos</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Doador</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for produto in produtos %}
+                <tr>
+                    <td> {{ produto.id }}</td>
+                    <td>{{ produto.pro_nome }} </td>
+                    <td>{{ produto.pro_status }}</td>
+                    <td>{{ produto.pro_usu_id }}</td>
+                    <td><a href="{% url 'editar_produto' produto.id %}" class="btn">Editar</a></td>
+                    <td><a href="{% url 'deletar_produto' produto.id %}" class="btn">Deletar</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="span3">
+            <a href="{% url 'novo_produto' %}" class="btn btn-primary">Adicionar novo produto</a>
+            <a href="{% url 'tela_inicio' %}" class="btn btn-primary">Voltar</a>
+        </div>
+
+{% endblock %}

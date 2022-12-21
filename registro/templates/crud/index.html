@@ -1,0 +1,15 @@
+{% extends  'crud/base.html' %} 
+{% block content %}
+<div class=>
+
+    <h1>Para onde você quer ir?</h1>
+    
+    <a href="{% url 'lista_telefones' %}"><button type="button" class="btn btn-primary btn-lg btn-block">Telefones</button></a>
+    <br>
+    <a href="{% url 'lista_produtos' %}"><button type="button" class="btn btn-primary btn-lg btn-block">Produtos</button></a>
+    
+    
+    
+</div>
+
+{% endblock %}

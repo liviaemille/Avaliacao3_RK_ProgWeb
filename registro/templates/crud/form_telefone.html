@@ -1,0 +1,14 @@
+{% extends 'crud/base.html' %} 
+
+{% load crispy_forms_tags %} 
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-sucess btn-primary">Salvar</button>
+        <a href="{% url 'lista_telefones' %}"><button type="button" class="btn bnt-sucesss btn-primary" >Voltar</button></a>
+    </form>
+
+{% endblock %}
