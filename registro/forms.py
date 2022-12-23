@@ -5,9 +5,9 @@ from .models import Produto, Telefone
 class ProdutoForm (forms.ModelForm):
     class Meta :
         model = Produto
-        fields = ['pro_nome', 'pro_status', 'pro_doador']
+        fields = ['nome', 'status', 'doador']
 
 class TelefoneForm (forms.ModelForm):
     class Meta :
         model = Telefone
-        fields =['tel_telefone', 'tel_dono']
+        fields =['telefone', 'dono']

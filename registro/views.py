@@ -7,7 +7,7 @@ def tela_inicio (request):
     return render(request, 'crud/index.html')
 
 def lista_produtos(request):
-    produtos = Produto.objects.all()
+    produtos = Produto.objects.all().order_by('nome')
     return render (request, 'crud/produtos.html', {'produtos': produtos})
 
 def novo_produto(request):
@@ -38,7 +38,7 @@ def deletar_produto(request, id):
     return render(request, 'crud/confirmacaodelete.html', {'produto': produto })
 
 def lista_telefones(request):
-    telefones = Telefone.objects.all()
+    telefones = Telefone.objects.all().order_by('dono')
     return render (request, 'crud/tabelatelefone.html', {'telefones': telefones })
 
 def novo_telefone (request):
@@ -67,3 +67,19 @@ def deletar_telefone(request, id):
         telefone.delete()
         return redirect('lista_telefones')
     return render(request, 'crud/confirmacaodeletetel.html', {'telefone': telefone})
+
+def opcoes_listagem(request):
+    return render(request, 'crud/opcoeslistagem.html')
+
+def opcoesbusca(request):
+    return render(request, 'crud/opcoesbusca.html')
+
+def busca_telefone(request):
+    buscar = request.GET.get('buscatel',default="")
+    telefones = Telefone.objects.filter(dono__icontains=buscar)
+    return render(request, 'crud/buscatelefone.html', {'telefones': telefones})
+
+def busca_produto(request):
+    buscar = request.GET.get('buscapro', default="")    
+    produtos = Produto.objects.filter(nome__icontains=buscar)
+    return render(request, 'crud/buscaproduto.html', {'produtos': produtos})
