@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-q++j)_07i+flyslt0ygepr+@1+r(b0)u%i*ikq&go0^cgl2i-a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'crud.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'db_20191104010022',
+        'USER' : 'user_20191104010022',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
